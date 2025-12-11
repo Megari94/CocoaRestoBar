@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-+)-h=n*z7lipvnk1sx=^2apb1+fh8=lg0@z)e(1ladas7ls*4o
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','cocoarestobar.onrender.com']
 
 
 # Application definition
