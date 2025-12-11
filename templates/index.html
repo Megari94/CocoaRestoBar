@@ -1,0 +1,507 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Crispy Kitchen - Django</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'css/tooplate-crispy-kitchen.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-white shadow-lg">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="{% url 'index' %}">
+            Crispy Kitchen
+        </a>
+
+        <div class="d-lg-none">
+            <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#BookingModal">Reservation
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index' %}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">Story</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'news' %}">Our Updates</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-none d-lg-block">
+            <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#BookingModal">Reservation
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+<main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-5 col-12 m-auto">
+                    <div class="heroText">
+
+                        <h1 class="text-white mb-lg-5 mb-3">Delicious Steaks</h1>
+
+                        <div class="c-reviews my-3 d-flex flex-wrap align-items-center">
+                            <div class="d-flex flex-wrap align-items-center">
+                                <h4 class="text-white mb-0 me-3">4.4/5</h4>
+
+                                <div class="reviews-stars">
+                                    <i class="bi-star-fill reviews-icon"></i>
+                                    <i class="bi-star-fill reviews-icon"></i>
+                                    <i class="bi-star-fill reviews-icon"></i>
+                                    <i class="bi-star-fill reviews-icon"></i>
+                                    <i class="bi-star reviews-icon"></i>
+                                </div>
+                            </div>
+
+                            <p class="text-white w-100">From <strong>1,206+</strong> Customer Reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-12">
+                    <div id="carouselExampleCaptions" class="carousel carousel-fade hero-carousel slide"
+                         data-bs-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <div class="carousel-image-wrap">
+                                    <img src="{% static 'images/slide/jay-wennington-N_Y88TWmGwA-unsplash.jpg' %}"
+                                         class="img-fluid carousel-image" alt="">
+                                </div>
+
+                                <div class="carousel-caption">
+                                    <span class="text-white">
+                                        <i class="bi-geo-alt me-2"></i> Manhattan, New York
+                                    </span>
+                                    <h4 class="hero-text">Fine Dining Restaurant</h4>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-image-wrap">
+                                    <img src="{% static 'images/slide/jason-leung-O67LZfeyYBk-unsplash.jpg' %}"
+                                         class="img-fluid carousel-image" alt="">
+                                </div>
+
+                                <div class="carousel-caption">
+                                    <div class="d-flex align-items-center">
+                                        <h4 class="hero-text">Steak</h4>
+                                        <span class="price-tag ms-4"><small>$</small>26.50</span>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <h5 class="reviews-text mb-0 me-3">3.8/5</h5>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="carousel-image-wrap">
+                                    <img src="{% static 'images/slide/ivan-torres-MQUqbmszGGM-unsplash.jpg' %}"
+                                         class="img-fluid carousel-image" alt="">
+                                </div>
+
+                                <div class="carousel-caption">
+                                    <div class="d-flex align-items-center">
+                                        <h4 class="hero-text">Sausage Pasta</h4>
+                                        <span class="price-tag ms-4"><small>$</small>18.25</span>
+                                    </div>
+
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <h5 class="reviews-text mb-0 me-3">4.2/5</h5>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="video-wrap">
+            <video autoplay loop muted class="custom-video">
+                <source src="{% static 'video/production_ID_3769033.mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="overlay"></div>
+    </section>
+
+    <!-- ================= SPECIAL MENUS ================= -->
+     <section class="special-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12 text-center">
+                        <h2 class="mb-lg-5 mb-4">Special Menus</h2>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="menu-block-wrap">
+                            <div class="menu-block">
+                                <div class="d-flex">
+                                    <h6>Breakfast</h6>
+
+                                    <span class="underline"></span>
+
+                                    <strong class="ms-auto">$24.50</strong>
+                                </div>
+
+                                <div class="d-flex">
+                                    <p>Apple Juice, Oatmeal, Apple slices, or donut holes</p>
+                                </div>
+
+                                <div class="menu-block-bottom">
+                                    <div class="d-flex">
+                                        <img src="{% static 'images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg' %}" class="img-fluid" alt="Special Breakfast">
+
+                                        <a href="#" class="custom-btn btn">Discover More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="menu-block-wrap">
+                            <div class="menu-block">
+                                <div class="d-flex">
+                                    <h6>Lunch</h6>
+
+                                    <span class="underline"></span>
+
+                                    <strong class="ms-auto">$12.50</strong>
+                                </div>
+
+                                <div class="d-flex">
+                                    <p>Chicken Tenders, or Pizza Roll with Apple Juice</p>
+                                </div>
+
+                                <div class="menu-block-bottom">
+                                    <div class="d-flex">
+                                        <img src="{% static 'images/lunch/farhad-ibrahimzade-D5c9ZciQy_I-unsplash.jpg' %}" class="img-fluid" alt="Special Lunch">
+
+                                        <a href="#" class="custom-btn btn">Discover More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="menu-block-wrap">
+                            <div class="menu-block">
+                                <div class="d-flex">
+                                    <h6>Dinner</h6>
+
+                                    <span class="underline"></span>
+
+                                    <strong class="ms-auto">$32.75</strong>
+                                </div>
+
+                                <div class="d-flex">
+                                    <p>Spaghetti, French Fries &amp; Orange Juice</p>
+                                </div>
+
+                                <div class="menu-block-bottom">
+                                    <div class="d-flex">
+                                        <img src="{% static 'images/dinner/farhad-ibrahimzade-isHUj3N0194-unsplash.jpg' %}" class="img-fluid" alt="Special Dinner">
+
+                                        <a href="#" class="custom-btn btn">Discover More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="news section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12 text-center">
+                        <h2 class="mb-lg-5 mb-4">News</h2>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                        <div class="news-thumb">
+
+                            <a href="news-detail.html" class="news-image-hover news-image-hover-warning">
+                                <img src="{% static 'images/news/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg' %}" class="img-fluid news-image" alt="">
+                            </a>
+
+                            <div class="news-category">
+                                <span>News</span>
+                            </div>
+
+                            <div class="news-text-info">
+                                <h5 class="news-title">
+                                    <a href="news-detail.html" class="news-title-link">Healthy Lifestyle and happy living tips</a>
+                                </h5>
+
+                                <span class="text-muted">22 hours ago</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                        <div class="news-thumb">
+
+                            <a href="news-detail.html" class="news-image-hover news-image-hover-secondary">
+                                <img src="{% static 'images/news/stefan-johnson-xIFbDeGcy44-unsplash.jpg' %}" class="img-fluid news-image" alt="">
+                            </a>
+
+                            <div class="news-category">
+                                <span class="text-secondary">Events</span>
+                            </div>
+
+                            <div class="news-text-info">
+                                <h5 class="news-title">
+                                    <a href="news-detail.html" class="news-title-link">How to make a healthy meal?</a>
+                                </h5>
+
+                                <span class="text-muted">6 days ago</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="news-thumb">
+
+                            <a href="news-detail.html" class="news-image-hover news-image-hover-primary">
+                                <img src="{% static 'images/news/gilles-lambert-S_LhjpfIdm4-unsplash.jpg' %}" class="img-fluid news-image" alt="">
+                            </a>
+
+                            <div class="news-category">
+                                <span class="text-primary">Meeting</span>
+                            </div>
+
+                            <div class="news-text-info">
+                                <h5 class="news-title">
+                                    <a href="news-detail.html" class="news-title-link">Is Coconut Oil Good for your health?</a>
+                                </h5>
+
+                                <span class="text-muted">2 weeks ago</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12 text-center">
+                        <h2 class="mb-lg-5 mb-4">Frequently Asked Questions</h2>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-lg-5 col-12">
+                        <img src="{% static 'images/charles-deluvio-FdDkfYFHqe4-unsplash.jpg' %}" class="img-fluid" alt="FAQs">
+                    </div>
+
+                    <div class="col-lg-6 col-12 m-auto">
+                        <div class="accordion" id="accordionGeneral">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        What is Crispy Kitchen?
+                                    </button>
+                                </h2>
+
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionGeneral">
+                                    <div class="accordion-body">
+                                        Crispy Kitchen is a place where you can enjoy quality meals made with passion and love.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How do I make a reservation?
+                                    </button>
+                                </h2>
+
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionGeneral">
+                                    <div class="accordion-body">
+                                        You can make a reservation online or by calling our restaurant.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Do you offer delivery?
+                                    </button>
+                                </h2>
+
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionGeneral">
+                                    <div class="accordion-body">
+                                        Yes, we offer delivery through our partners.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact section-padding bg-light">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-12">
+                        <h2 class="mb-lg-5 mb-4">Contact Us</h2>
+
+                        <form action="{% url 'contact' %}" method="post" class="custom-form contact-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <input type="text" name="contact-name" id="contact-name" class="form-control" placeholder="Name" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <input type="email" name="contact-email" id="contact-email" class="form-control" placeholder="Email" required>
+                                </div>
+
+                                <div class="col-lg-12 col-12">
+                                    <textarea name="contact-message" rows="5" class="form-control" id="contact-message" placeholder="Message" required></textarea>
+                                </div>
+
+                                <div class="col-lg-5 col-12 ms-auto">
+                                    <button type="submit" class="form-control">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-lg-5 col-12 mx-auto mt-5 mt-lg-0 mt-md-0">
+                        <iframe class="google-map" src="https://www.google.com/maps/embed?..."></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 col-12 mb-4">
+                        <h4 class="my-3">Crispy Kitchen</h4>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec fermentum turpis non sem faucibus, in cursus ligula bibendum.</p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-12 ms-lg-auto mb-4">
+                        <h4 class="my-3">Contact Info</h4>
+
+                        <p><a href="tel:+1234567890">+1 234 567 890</a></p>
+
+                        <p><a href="mailto:info@company.com">info@company.com</a></p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-12">
+                        <h4 class="my-3">Location</h4>
+
+                        <p>123 Main Street, City, Country</p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScripts -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+
+    </body>
+</html>
